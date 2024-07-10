@@ -42,6 +42,11 @@ public void delete(String id) {
 	d.deleteById(id);
 	
 }
+public Optional<topic> getdeuration(String duration) {
+	
+	return d.getdu(duration);
+	
+}
 
 
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -32,8 +33,9 @@ public   List<topic> getAllTopics ()
 //@RequestMapping("/topic/{val}")
 @GetMapping("/topic/{val}")
 public  Optional<topic> gettopic(@PathVariable("val") String id)
-{
-	return s.getTopic(id);
+{	Optional<topic> a =s.getTopic(id);
+	System.out.println(a);
+	return a;
 }
 //@RequestMapping(method = RequestMethod.POST,value = "/add")
 @PostMapping("/add")
@@ -44,7 +46,8 @@ public  void addtopic(@RequestBody topic t)
 }
 
 //@RequestMapping(method = RequestMethod.PUT,value = "/update/{id}")
-@PutMapping("/update/{id}")
+//@PutMapping("/update/{id}")
+@PatchMapping("/update/{id}")
 public  void updatetopic(@RequestBody topic t,@PathVariable String id)
 {
 	s.update(t,id);
@@ -57,5 +60,12 @@ public  void deletetopic(@PathVariable String id)
 	s.delete(id);
 	
 }
-
+@GetMapping("/getdu/{duration}")
+public Optional<topic>getduration(@PathVariable String duration){
+	return s.getdeuration(duration);
+}
+@GetMapping("/test")
+public void gitTest()
+{
+}
 }
