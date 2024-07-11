@@ -44,7 +44,7 @@ public  void addtopic(@RequestBody topic t)
 	s.add(t);
 	
 }
-
+//
 //@RequestMapping(method = RequestMethod.PUT,value = "/update/{id}")
 //@PutMapping("/update/{id}")
 @PatchMapping("/update/{id}")
